@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Form spedizione</title>
+
+</head>
+<body>
+
+<form id="delivery" autocomplete="on">
+
+    <div>
+        <div STYLE="display: inline">Campo</div>
+        <div STYLE="display: inline">Input</div>
+    </div>
+
+
+    <div>
+        <div STYLE="display: inline"><label for="name"> Nome*</label></div>
+        <div STYLE="display: inline"><input id="name" type="text" name="name" placeholder="Nome" required></div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="lastname"> Cognome*</label></div>
+        <div STYLE="display: inline"><input id="lastname" type="text" name="lastname" placeholder="Cognome" required>
+        </div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="address"> Indirizzo</label></div>
+        <div STYLE="display: inline"><input id="address" type="text" name="address" placeholder="Indirizzo"></div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="po"> Civico</label></div>
+        <div STYLE="display: inline"><input id="po" type="text" name="po" placeholder="Civico"></div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="cap"> Cap*</label>
+        </div>
+        <div STYLE="display: inline"><input id="cap" type="text" name="cap" placeholder="Cap" required>
+        </div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="province"> Provincia*</label></div>
+        <div STYLE="display: inline"><select name="province" id="province" required>
+            <option value="MI"> Milano</option>
+            <option value="RO"> Roma</option>
+            <option value="TO"> Torino</option>
+            <option value="OTHER" selected> Altro</option>
+        </select>
+        </div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="city"> Citta*</label></div>
+        <div STYLE="display: inline"><input id="city" type="text" name="city" placeholder="Citta" required></div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="country"> Nazione*</label>
+        </div>
+        <div STYLE="display: inline"><input id="country" type="text" name="country" placeholder="Nazione" required>
+        </div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="phone">Telefono</label>
+        </div>
+        <div STYLE="display: inline"><input id="phone" type="tel" name="phone" placeholder="Telefono">
+        </div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="email"> Email</label>
+        </div>
+        <div STYLE="display: inline"><input id="email" type="email" name="email" placeholder="Email"> <br>
+        </div>
+    </div>
+
+    <div>
+        <div STYLE="display: inline"><label for="note"> Note</label><br>
+        </div>
+        <div STYLE="display: inline"><textarea name="note" id="note" cols="30" rows="30" placeholder="Note"></textarea>
+        </div>
+    </div>
+
+    <div>
+
+        <div STYLE="display: inline">
+            input type="submit" value="Invia">
+        </div>
+    </div>
+</form>
+<button type="reset" form="delivery"> Reset</button>
+
+</body>
+</html>
