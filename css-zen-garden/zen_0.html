@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <title>CSS Zen Garden: The Beauty of CSS Design</title>
 
-    <link rel="stylesheet" media="screen" href="style.css" />
+    <!-- <link rel="stylesheet" media="screen" href="style.css" /> -->
+
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -23,6 +24,16 @@
     <!--[if lt IE 9]>
       <script src="script/html5shiv.js"></script>
     <![endif]-->
+
+    <style>
+      /*selettori composti=
+        a=elemento / zen-validate-html=classe / [href*="http:"]= attributo */
+      a.zen-validate-html[href*="http:"],
+      a.zen-validate-css {
+        color: red;
+        font-size: 30px;
+      }
+    </style>
   </head>
 
   <!--
@@ -172,8 +183,8 @@
             <a
               href="http://www.mezzoblue.com/zengarden/submit/"
               title="Use the contact form to send us your CSS file"
-              >Send us a link</a
-            >
+              >Send us a link
+            </a>
             to an archive of that file and all associated assets, and if we
             choose to use it we will download it and place it on our server.
           </p>

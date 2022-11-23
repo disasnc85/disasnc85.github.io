@@ -1,0 +1,65 @@
+html {
+  border: 25px solid #943276;
+}
+/* * {
+  border: 1px solid green;
+  margin: unset;
+} */
+
+p {
+  padding: 80px;
+}
+a {
+  border: unset;
+  font-style: italic;
+  font-weight: bold;
+}
+abbr {
+  text-decoration: none;
+  border: unset;
+  font-style: italic;
+  font-weight: bold;
+}
+/*selettori ID*/
+#zen-intro {
+  margin: auto;
+  padding: 0;
+  background: linear-gradient(45deg, #b6008288, #7b06436a);
+}
+
+#zen-supporting {
+  background-color: rgb(103, 109, 102);
+  border: solid 5px rgb(23, 171, 36);
+}
+
+#design-selection {
+  background-color: rgb(162, 74, 229);
+  border: solid 5px rgb(171, 77, 23);
+}
+
+/* selettori classi*/
+*summary {
+  color: red;
+  padding: 20px;
+}
+
+/* attributi */
+/* [role="article"] {
+  background: linear-gradient(rgb(143, 138, 174), #583d57);
+}*/
+
+/* attributo che conteine con "*" */
+[href*="validator"] {
+  color: green;
+}
+
+/* attributo che finisce con "$" */
+[href$="/"] {
+  color: rgb(255, 0, 221);
+}
+
+/* attributo che inizia con "^" */
+[href^="http://www.mezzoblue.com/"]
+{
+  color: purple;
+}

@@ -1,0 +1,14 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: unset;
+  font: unset;
+}
+
+h3 {
+  color: #191819;
+  font-weight: bold;
+  font: 32px "Inconsolata", monospace;
+}
