@@ -1,10 +1,6 @@
 html {
   border: 25px solid #943276;
 }
-/* * {
-  border: 1px solid green;
-  margin: unset;
-} */
 
 p {
   padding: 80px;
@@ -20,21 +16,73 @@ abbr {
   font-style: italic;
   font-weight: bold;
 }
+
 /*selettori ID*/
-#zen-intro {
+#zen-summary {
   margin: auto;
   padding: 0;
   background: linear-gradient(45deg, #b6008288, #7b06436a);
 }
+#zen-preamble {
+  margin: auto;
+  padding: 0;
+  background: linear-gradient(45deg, #b6008288, #7b06436a);
+}
+footer {
+  background-color: rgb(103, 109, 102);
+  border: solid 5px rgb(23, 171, 36);
+}
+#zen-explanation {
+  background-color: rgb(103, 109, 102);
+  border: solid 5px rgb(23, 171, 36);
+}
 
-#zen-supporting {
+#zen-participation {
+  background-color: rgb(103, 109, 102);
+  border: solid 5px rgb(23, 171, 36);
+}
+
+#zen-benefits {
+  background-color: rgb(103, 109, 102);
+  border: solid 5px rgb(23, 171, 36);
+}
+
+#zen-requirements {
   background-color: rgb(103, 109, 102);
   border: solid 5px rgb(23, 171, 36);
 }
 
 #design-selection {
-  background-color: rgb(162, 74, 229);
-  border: solid 5px rgb(171, 77, 23);
+  background: linear-gradient(45deg, #b6008288, #7b06436a);
+  border: solid 5px rgb(215, 43, 158);
+}
+
+#design-archives {
+  background: linear-gradient(45deg, #b6008288, #7b06436a);
+  border: solid 5px rgb(215, 43, 158);
+}
+
+#zen-resources {
+  background: linear-gradient(45deg, #b6008288, #7b06436a);
+  border: solid 5px rgb(215, 43, 158);
+}
+
+/*TESTI ZONA FOOTER */
+footer a.zen-validate-html {
+  color: purple;
+}
+footer a.zen-validate-css {
+  color: purple;
+}
+footer a.zen-license {
+  color: purple;
+}
+footer a.zen-accessibility {
+  color: purple;
+}
+
+footer a.zen-github {
+  color: purple;
 }
 
 /* selettori classi*/
@@ -43,23 +91,17 @@ abbr {
   padding: 20px;
 }
 
-/* attributi */
-/* [role="article"] {
-  background: linear-gradient(rgb(143, 138, 174), #583d57);
-}*/
-
-/* attributo che conteine con "*" */
-[href*="validator"] {
-  color: green;
-}
-
 /* attributo che finisce con "$" */
-[href$="/"] {
-  color: rgb(255, 0, 221);
+aside div.design-selection nav [href] {
+  color: purple;
 }
 
 /* attributo che inizia con "^" */
-[href^="http://www.mezzoblue.com/"]
-{
+
+aside div.design-archives nav [href] {
+  color: purple;
+}
+
+aside div.zen-resources ul [href] {
   color: purple;
 }
