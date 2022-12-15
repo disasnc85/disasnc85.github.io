@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query-0</title>
+
+    <!-- Foglio di stile dedicato alla sola stampa( media="print") 
+        permette di mettere le regole di stile per la stampa  -->
+    <link rel="stylesheet" href="print.css" media="print" />
+
+    <style>
+      .title > h1 {
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        margin: 0.2em 0;
+        color: red;
+      }
+      @media screen and (min-width: 320px) and (max-width: 767px) {
+        div.title > h1 {
+          color: yellow;
+        }
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        div.title > h1 {
+          color: green;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">
+        <h1>This is in the main title</h1>
+      </div>
+      <article>
+        <h1>Title</h1>
+        <p>Text</p>
+      </article>
+    </div>
+  </body>
+</html>

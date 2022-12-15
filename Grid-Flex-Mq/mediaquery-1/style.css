@@ -1,0 +1,72 @@
+:root {
+  box-sizing: border-box;
+}
+
+*::before,
+::after {
+  box-sizing: inherit;
+}
+
+/* GLOBAL/MOBILE FIRT (iniziamo con il dispositivo modbile piu piccolo) 
+*/
+
+body {
+  font-family: calibri, sans-serif;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.8em;
+  margin: 0.9em 0 0 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.9em 0 0 0;
+}
+p {
+  font-size: 0.9em;
+  padding: 5px;
+}
+
+figure {
+  background-color: black;
+  border-radius: 0.4em;
+  color: white;
+  padding: 0.8em;
+  text-align: center;
+  margin: 0 0 0.9em 0;
+}
+
+img {
+  max-width: 100%;
+}
+.container {
+  margin: 0 0.5em;
+}
+
+/* IMPOSTAZIONE RESPONSIVE PER TABLET DA 768px */
+
+@media screen and (min-width: 768px) {
+  body {
+    background-color: rgba(0, 0, 255, 0.2);
+    margin: 0;
+  }
+
+  figure {
+    float: left;
+    width: calc(50% - 3.5em);
+    margin-right: 1.5em;
+  }
+
+  .kittens {
+    margin-right: -1.5em;
+  }
+
+  .kittens::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
