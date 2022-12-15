@@ -1,0 +1,21 @@
+@page {
+    size: auto;
+    margin: 5mm;
+}
+
+
+:root{
+    /* permette di stampare i colori(si eredita) */
+    -webkit-print-color-adjust: exact;
+}
+body {
+    margin: 0;
+}
+
+div.title > h1{
+    color: green;
+}
+
+.container{
+    background-color: burlywood;
+}
