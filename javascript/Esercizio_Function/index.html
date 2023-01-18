@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS tour</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dynalight&display=swap");
+
+      body {
+        background-color: black;
+      }
+
+      div.title h1 {
+        color: rgb(199, 0, 249);
+        font-family: "Dynalight", cursive;
+        font-size: 5rem;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        text-align: center;
+        margin-left: auto;
+      }
+      p {
+        color: rgb(199, 0, 249);
+        font-family: "Dynalight", cursive;
+        font-size: 5rem;
+        text-align: center;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <h1>Js Tour</h1>
+      <p>
+        Ciao Papa sono Emily, come stai? <br />
+        tra poco faremo il sito per te io e lo Zio
+      </p>
+    </div>
+    <script>
+      /*EsercizioF1
+Caldo o Freddo
+Scrivi un programma che dati tre valori relativi alle temperature della settimana
+stabilisca la giornata piu calda o quella piu fredda.
+
+Esempio
+Input: a = 30, b = -2
+Output: giornata piu calda = 30, giornata piu fredda= -2
+*/
+
+      var a = 30;
+      var b = -2;
+      var c = 10;
+
+      var caldo = 0;
+      var freddo = 0;
+
+      if (a >= b && a >= c) {
+        caldo = a;
+        freddo = b < c ? b : c; //confronto ternario
+      } else if (a < b && a < c) {
+        caldo = b > c ? b : c; //confronto ternario
+      } else {
+        caldo = c;
+        freddo = b < a ? b : a; //confronto ternario
+      }
+
+      if (a >= b && a >= c) {
+        caldo = a;
+        freddo = b < c ? b : c; //confronto ternario
+      } else if (b >= a && b >= c) {
+        caldo = b;
+        freddo = a < c ? a : c; //confronto ternario
+      } else {
+        caldo = c;
+        freddo = b < a ? b : a; //confronto ternario
+      }
+
+      var esercizioF1 =
+        "giornata piu calda =" + caldo + ", giornata piu fredda=" + freddo;
+      // console.log(esercizioF1);
+    </script>
+    <script>
+      /*
+            EsercizioF2
+      Il conta cifre
+      Scrivi un programma che dato un numero (massimo 9999) conti da quante cifre è formato
+
+      Esempio
+      Input: numero = 9
+      Output: 1 cifra
+
+      Input: numero = 245
+      Output: 3 cifra
+      */
+      var num = 7;
+      var cifra = 0;
+      if (num >= 0 && num <= 10000) {
+        if (num <= 9) {
+          cifra = 1;
+        } else if (num <= 99) {
+          cifra = 2;
+        } else if (num <= 999) {
+          cifra = 3;
+        } else cifra = 4;
+      }
+      if (num < 0 || num >= 10000) {
+        throw Error("Numero non valido");
+      }
+
+      var EsercizioF2 =
+        "Il numero " +
+        num +
+        " contiene " +
+        cifra +
+        " cifr" +
+        (cifra === 1 ? "a" : "e");
+      console.log(EsercizioF2);
+    </script>
+    <!-- Oggetto e Prototipo -->
+    <script>
+      var obj1 = {
+        Name: "test",
+      };
+
+      var animal = {
+        Breathe: function () {},
+        birthDate: new Date(),
+      };
+
+      var felini = {
+        type: "Mammifero",
+        run: function () {},
+        Assault: function () {},
+      };
+
+      var lion = Object.create(animal);
+      Object.setPrototypeOf(felini, animal);
+      Object.setPrototypeOf(lion, felini);
+      lion.Roar = function () {};
+
+      console.log(animal);
+      console.log(lion);
+    </script>
+  </body>
+</html>
