@@ -1,0 +1,20 @@
+#zen-intro{
+    a {
+        color: $brand-color-green;
+        margin: $spacing + 0.5em;
+        transition: color 2s   ease;
+      
+      
+        &:active {
+          transition: inherit;
+          color: $brand-color-dark;
+        }
+        &:hover{
+          transition: inherit;
+          color:$brand-color-light;
+        }
+        @media ($tablet-screen) {
+          
+        }
+      }
+}

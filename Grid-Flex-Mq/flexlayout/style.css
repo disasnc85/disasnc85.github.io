@@ -1,0 +1,170 @@
+/* 
+FUNDATION
+*/
+
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+body * + * {
+  margin-top: 1.5em;
+}
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  background-color: rgb(115, 162, 159);
+}
+/* 
+CUSTOM CSS
+ */
+
+body {
+  background-color: #709b90;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* 
+NAV SECTION
+ */
+
+ul.site-nav {
+  display: flex;
+  padding: 0.5em;
+  list-style-type: none;
+  background-color: rgb(120, 60, 26);
+  border-radius: 0.2em;
+}
+ul.site-nav > li {
+  margin-top: 0;
+}
+
+ul.site-nav > li a {
+  display: block;
+  padding: 0.5em 1em;
+  background-color: rgb(219, 109, 46);
+  color: white;
+  text-decoration: none;
+}
+
+/* EVIDENZIARE IL LINK QUANDO PASSI SOPRA (:HOVER) */
+ul.site-nav > li a:hover {
+  background-color: rgb(228, 162, 91);
+}
+
+ul.site-nav > li + li {
+  margin-left: 0.5em;
+}
+
+ul.site-nav > .nav-right /*, ul.site-nav >:nth-child(4)*/ {
+  margin-left: auto;
+}
+
+/* 
+MAIN
+ */
+
+main {
+  display: flex;
+}
+/* flex items */
+.tile {
+  background-color: white;
+  padding: 1.5em;
+}
+
+/* annullato lobomitize Gufo */
+main > * + * {
+  margin-top: 0em;
+  margin-left: 1.5em;
+}
+.column-main {
+  flex: 3;
+}
+.column-sidebar {
+  flex: 1;
+}
+
+.column-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+.column-sidebar > .tile {
+  flex: 1;
+}
+
+/* 
+SIDEBAR
+*/
+
+.login-form h3 {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase; /* testo maiuscolo*/
+  text-align: right;
+}
+
+.login-form label {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+}
+.login-form input[type="username"],
+.login-form input[type="password"] {
+  display: block;
+  margin-top: 0;
+  width: 100%;
+  border: 1px solid #dedede;
+  padding: 0.5em 1em;
+}
+.centered {
+  text-align: center;
+}
+
+.cost {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cost > span {
+  display: block;
+  margin-top: 0;
+  line-height: 0.6em;
+}
+
+.cost-currency {
+  font-size: 2em;
+}
+
+.cost-dollars {
+  font-size: 4em;
+}
+
+.cost-cents {
+  font-size: 1.5em;
+  align-self: flex-start;
+}
+
+/* 
+special-offer Flex
+*/
+.special-offer {
+  display: flex;
+  flex-direction: column;
+}
+
+a.cta-button {
+  display: block;
+  margin-top: auto;
+  width: 100%;
+  background-color: rgb(219, 109, 46);
+  padding: 0.5em 1em;
+  color: white;
+}

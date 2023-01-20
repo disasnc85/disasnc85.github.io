@@ -1,0 +1,40 @@
+@import "variables";
+@import "zen-intro-style";
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+section {
+  background-color: white;
+  @include clearfix;
+}
+
+section.x {
+  @extend section;
+  background-color: green;
+}
+.elm1 {
+  @include clearfix;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $brand-color-green;
+  padding: $spacing;
+}
+
+@for $index from 1 to 5{
+  .nav-links {
+    > li:nth-child(#{$index}) {
+      padding: $spacing * $index;
+    }
+  }
+}

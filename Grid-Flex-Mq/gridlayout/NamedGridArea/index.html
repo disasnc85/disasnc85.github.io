@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Calibri, sans-serif;
+      }
+
+      .container {
+        margin: 0 auto;
+        max-width: 1080px;
+      }
+
+      .container > * {
+        background-color: #709b90;
+        border-radius: 0.5em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2em;
+      }
+
+      /* 
+GRID
+*/
+
+      .container {
+        display: grid;
+        grid-template-areas:
+          "header header"
+          "nav nav"
+          "main sidebar1"
+          "main sidebar2";
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-gap: 0.5em;
+      }
+      .a {
+        grid-column: main;
+        grid-row: main;
+        background-color: red;
+      }
+
+      .b {
+        grid-column: header;
+        grid-row: header;
+        background-color: purple;
+      }
+
+      .c {
+        grid-column: nav;
+        grid-row: nav;
+        background-color: brown;
+      }
+
+      .d {
+        grid-column: sidebar1;
+        grid-row: sidebar1;
+        background-color: rgb(234, 183, 183);
+      }
+
+      .e {
+        grid-column: sidebar2;
+        grid-row: sidebar2;
+        background-color: rgb(98, 114, 229);
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="a">a</div>
+      <div class="b">b</div>
+      <div class="c">c</div>
+      <div class="d">d</div>
+      <div class="e">e</div>
+    </div>
+  </body>
+</html>

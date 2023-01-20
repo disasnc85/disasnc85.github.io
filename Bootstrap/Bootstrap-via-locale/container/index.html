@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <title>Bootstrap example</title>
+
+    <style>
+      .container-fluid {
+        background-color: red;
+      }
+      .container-sm {
+        background-color: rgb(184, 40, 141);
+      }
+      .container-md {
+        background-color: green;
+      }
+
+      .container-lg {
+        background-color: purple;
+      }
+
+      .container-xl {
+        background-color: wheat;
+      }
+      .container-xxl {
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">test</div>
+
+    <div class="container-fluid">100% wide until small breakpoint</div>
+    <div class="container-sm">100% wide until small breakpoint</div>
+    <div class="container-md">100% wide until medium breakpoint</div>
+    <div class="container-lg">100% wide until large breakpoint</div>
+    <div class="container-xl">100% wide until extra large breakpoint</div>
+    <div class="container-xxl">100% wide until extra extra large breakpoint</div>
+
+    <div class="container_0 ms-5 mt-5">
+      <div class="card" style="width: 18rem">
+        <div id="caroselloGatti" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#caroselloGatti"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#caroselloGatti"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#caroselloGatti"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="https://placekitten.com/200/300?image=15"
+                class="d-block w-100"
+                alt="kitten1"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://placekitten.com/200/300?image=14"
+                class="d-block w-100"
+                alt="kitten2"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="https://placekitten.com/200/300?image=13"
+                class="d-block w-100"
+                alt="kitten3"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#caroselloGatti"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#caroselloGatti"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/bootstrap/js/bootstrap.bundle.js"></script>
+  </body>
+</html>

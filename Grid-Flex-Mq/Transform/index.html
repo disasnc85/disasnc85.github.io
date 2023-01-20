@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transform</title>
+
+    <style>
+      :root {
+        box-sizing: border-box;
+      }
+
+      *,
+      ::before,
+      ::after {
+        box-sizing: inherit;
+      }
+
+      body {
+        background-color: #008eff;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .card {
+        padding: 0.5em;
+        max-width: 15em;
+        background-color: white;
+        margin-right: 10px;
+        box-shadow: 5px 10px 25px -16px;
+      }
+      .card img {
+        max-width: 100%;
+      }
+
+/* 
+TRANSFORM
+*/
+
+      /* .container .card:first-child:hover{
+        transform: rotate(20deg);
+        transition: transform 2s ease-out;
+        cursor: pointer;
+       } */
+      /* 
+       .container .card:hover{
+        transform: rotate(20deg);
+        transition: transform 2s ease-out;
+        cursor: pointer;
+       } */
+
+      /* .container .card:hover {
+        animation-name: animate-card-example;
+        animation-duration: 1s;
+        animation-iteration-count: 10;
+        cursor: pointer;
+        transform-style: preserve-3d;
+      } */
+      .container {
+        perspective: 400px;
+        perspective-origin: bottom;
+      }
+      /* .container .card {
+        transform: rotateY(180deg);
+      } */
+
+      .container .card:hover {
+        transform: rotateY(180deg);
+        animation-name: animate-card-3D-example;
+        animation-duration: 3s;
+        cursor: pointer;
+      }
+      .container .card {
+        backface-visibility: hidden;
+      }
+
+      @keyframes animate-card-3D-example {
+        0% {
+          transform: rotatex(0deg);
+          opacity: 1;
+          filter: blur(0) brightness(1) drop-shadow(0px 0px 0px black);
+        }
+        50% {
+          transform: rotatex(30deg);
+          opacity: 0.5;
+          filter: blur(1px) brightness(0.4) drop-shadow(16px 16px 20px black);
+        }
+        100% {
+          transform: rotatex(0deg);
+          /* opacity: 1; */
+          filter: blur(0);
+        }
+      }
+
+      @keyframes animate-card-example {
+        0% {
+          transform: rotate(0deg) translate(0px) scale(1, 1);
+        }
+        25% {
+          transform: rotate(-10deg) translate(-10px) scale(1.2, 1.2);
+        }
+        75% {
+          transform: rotate(10deg) translate(10px) scale(1.2, 1.2);
+        }
+
+        100% {
+          transform: rotate(0deg) translate(0px) scale(1, 1);
+        }
+      }
+
+      /* 
+COLONNE
+*/
+      body > div > p {
+        columns: 35em;
+        background-color: white;
+        padding: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card">
+        <img src="/Transform/leone.jpeg" alt="Leone" />
+        <h4>Some title</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+          quisquam consequatur dolores. Doloremque voluptates facere eligendi
+          quae consectetur obcaecati explicabo repellendus laborum corporis
+          nihil amet, praesentium soluta veniam, delectus provident.
+        </p>
+      </div>
+      <div class="card">
+        <img src="/Transform/leone.jpeg" alt="Leone" />
+        <h4>Some title</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+          quisquam consequatur dolores. Doloremque voluptates facere eligendi
+          quae consectetur obcaecati explicabo repellendus laborum corporis
+          nihil amet, praesentium soluta veniam, delectus provident.
+        </p>
+      </div>
+      <div class="card">
+        <img src="/Transform/leone.jpeg" alt="Leone" />
+        <h4>Some title</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+          quisquam consequatur dolores. Doloremque voluptates facere eligendi
+          quae consectetur obcaecati explicabo repellendus laborum corporis
+          nihil amet, praesentium soluta veniam, delectus provident.
+        </p>
+      </div>
+    </div>
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+        molestiae possimus animi quis veniam? Nam praesentium natus ab beatae
+        accusamus voluptate suscipit provident excepturi laboriosam error! Unde
+        nihil corrupti at? Eius doloribus, fugiat, libero non officiis
+        aspernatur vero nisi neque soluta pariatur, debitis porro. Animi iusto
+        neque non officia amet, rem quasi aut! Fuga itaque tempora cupiditate
+        porro repudiandae facere? Eum id autem corporis doloremque tempora
+        distinctio, ratione aut minus velit expedita provident. Reprehenderit
+        aut dolorem non unde, asperiores qui ex magnam totam blanditiis,
+        pariatur nihil possimus, ad ut est! Nemo dignissimos, voluptatibus quas
+        quos laborum fugiat consequuntur quo possimus cum sint deserunt modi
+        nihil, voluptates earum fuga culpa laudantium mollitia, temporibus dolor
+        sequi sed quae rerum. Rerum, distinctio a! Sapiente tenetur adipisci
+        quos accusamus. Provident magnam, cum blanditiis eligendi illum nihil
+        qui molestiae pariatur neque minima sit rerum labore hic. Voluptatem
+        aliquam minima, accusantium architecto dicta facere quod explicabo!
+      </p>
+    </div>
+  </body>
+</html>

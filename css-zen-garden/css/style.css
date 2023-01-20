@@ -1,0 +1,57 @@
+#zen-intro a {
+  color: green;
+  margin: 2em;
+  transition: color 2s ease;
+}
+#zen-intro a:active {
+  transition: inherit;
+  color: #004400;
+}
+#zen-intro a:hover {
+  transition: inherit;
+  color: #00cb00;
+}
+section, section.x {
+  background-color: white;
+}
+section::after, section.x::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+section.x {
+  background-color: green;
+}
+
+.elm1::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: green;
+  padding: 1.5em;
+}
+
+.nav-links > li:nth-child(1) {
+  padding: 1.5em;
+}
+
+.nav-links > li:nth-child(2) {
+  padding: 3em;
+}
+
+.nav-links > li:nth-child(3) {
+  padding: 4.5em;
+}
+
+.nav-links > li:nth-child(4) {
+  padding: 6em;
+}/*# sourceMappingURL=style.css.map */

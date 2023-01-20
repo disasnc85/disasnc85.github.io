@@ -35,11 +35,8 @@
   <body>
     <div class="title">
       <h1>Js Tour</h1>
-      <p>
-        Ciao Papa sono Emily, come stai? <br />
-        tra poco faremo il sito per te io e lo Zio
-      </p>
     </div>
+    <!-- Esercizio F1 -->
     <script>
       /*EsercizioF1
 Caldo o Freddo
@@ -83,6 +80,7 @@ Output: giornata piu calda = 30, giornata piu fredda= -2
         "giornata piu calda =" + caldo + ", giornata piu fredda=" + freddo;
       // console.log(esercizioF1);
     </script>
+    <!-- Esercizio F2 -->
     <script>
       /*
             EsercizioF2
@@ -144,6 +142,76 @@ Output: giornata piu calda = 30, giornata piu fredda= -2
 
       console.log(animal);
       console.log(lion);
+    </script>
+    <!-- Consctructor function  -->
+    <script>
+      function car(name, manufacturer) {
+        this.name = name;
+        this.manifacturer = manufacturer;
+
+        car.prototype.year = undefined;
+        car.prototype.toString = function () {
+          return this.name + "," + this.manufacturer;
+        };
+      }
+
+      Object.prototype.sayThis = function (t) {
+        return t;
+      };
+
+      var car1 = { name: "Fiesta", manufacturer: "Ford" };
+      var car2 = { name: "Panda", manufacturer: "Fiat" };
+      var car3 = new car("ModelY", "Tesla");
+      car3.year = 2018;
+    </script>
+    <!-- Esercizio OOP -->
+    <script>
+      function card(face, suit) {
+        this.face = getFace(face);
+        this.suit = getSuit(suit);
+
+        // Internal function
+
+        function getSuit(suit) {
+          if (suit < 0 || suit > 3) throw new Error("argoment out of range");
+
+          if (suit === 0) {
+            return "Cuori";
+          } else if (suit === 1) {
+            return "Fiori";
+          } else if (suit === 2) {
+            return "Quadri";
+          } else if (suit === 3) {
+            return "Picche";
+          }
+        }
+        function getFace(face) {
+          if (face < 0 || face > 9 || Number.isInteger(face) == false)
+            throw new Error("argoment out of range");
+          switch (face) {
+            case 0:
+              return "Asso";
+            case 9:
+              return "Re";
+            default:
+              return (face + 1).toString();
+          }
+        }
+      }
+
+      function CardDeck() {
+        this.shuffle = function () {
+          var face = Math.round(Math.random() * 9);
+          var suit = Math.round(Math.random() * 3);
+
+          return new card(face, suit);
+        };
+      }
+
+      var CardDeck = new CardDeck();
+
+      console.log(CardDeck);
+      console.log(CardDeck.shuffle());
     </script>
   </body>
 </html>

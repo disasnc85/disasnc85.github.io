@@ -1,0 +1,145 @@
+/* 
+GENERIC RULES
+ */
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #709b90;
+  font-family: Calibri, sans-serif;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* 
+GRID
+ */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-gap: 1.5em;
+}
+
+.container > * {
+  border: 1px dotted;
+}
+
+header,
+.site-nav {
+  grid-column: 1/3;
+  grid-row: span 1;
+}
+
+main {
+  grid-column: 1/2;
+  grid-row: 3/5;
+}
+
+.sidebar-top {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+
+.sidebar-bottom {
+  grid-column: 2/3;
+  grid-row: 4/5;
+}
+
+/* 
+sezione NAV - FLEX
+*/
+
+ul.site-nav {
+  display: flex;
+  padding: 0.5em 0.5em;
+  list-style: none;
+  background-color: rgba(165, 42, 42, 0.704);
+  border-radius: 0.5em;
+}
+
+ul.site-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+ul.site-nav > li {
+  margin-top: 0;
+  padding: 1em 1.5em;
+  background-color: rgba(206, 139, 14, 0.797);
+  color: white;
+  border-radius: 0.5em;
+}
+
+ul.site-nav > li + li {
+  margin-left: 0.5em;
+}
+
+ul.site-nav li:hover {
+  background-color: burlywood;
+}
+
+ul.site-nav li.nav-right {
+  margin-left: auto;
+}
+
+/* 
+sezione MAIN - FLEX
+*/
+
+main {
+  display: flex;
+}
+.main-tile {
+  display: block;
+  text-align: left;
+}
+p {
+  border: solid 1px;
+  padding: 1em 0.5em;
+  margin: 0;
+}
+
+/* 
+sezione SIDEBAR-TOP - FLEX
+*/
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+}
+
+.sidebar-top h1 {
+  /* display: flex; */
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.sidebar-top input[type="text"] {
+  display: block;
+  margin-top: 0;
+  width: 100%;
+  border: 1px solid #dedede;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+}
+
+.sidebar-top input[type="password"] {
+  display: block;
+  margin-top: 0;
+  width: 100%;
+  border: 1px solid #dedede;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+}

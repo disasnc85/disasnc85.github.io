@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .elm2 {
+        border: 5px solid;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+      }
+
+      .elm2 {
+        animation-name: over-and-back;
+        animation-duration: 4s;
+        animation-iteration-count: 10;
+      }
+
+      @keyframes over-and-back {
+        0% {
+          background-color: hsl(271, 49%, 54%, 0);
+          position: relative;
+          left: 0;
+        }
+        50% {
+          background-color: hsl(271, 49%, 54%, 1);
+          position: relative;
+          left: 250px;
+        }
+
+        100% {
+          background-color: hsl(271, 49%, 54%, 0);
+          position: relative;
+          left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="elm2">&nbsp;</div>
+    </div>
+  </body>
+</html>

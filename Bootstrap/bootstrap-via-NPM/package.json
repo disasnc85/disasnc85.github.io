@@ -1,0 +1,29 @@
+{
+  "name": "bootstrap-via-npm",
+  "version": "0.0.1",
+  "description": "some description",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass assets/main.scss:assets/main.built.css",
+    "postcss": "npx postcss -r assets/*.css --use autoprefixer",
+    "minify": "css-minify -d assets -o assets",
+    "dev": "npm run sass",
+    "build": "npm run sass && npm run postcss && npm run minify",
+    "watch:sass": "nodemon -e scss -x \"npm run sass\" ",
+    "watch:postcss": "nodemon -e css -x \"npm run postcss\" ",
+    "watch": "npm run watch:sass"
+  },
+  "author": "md",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "css-minify": "^2.0.0",
+    "dart-sass": "^1.25.0",
+    "postcss": "^8.4.20",
+    "postcss-cli": "^10.1.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}

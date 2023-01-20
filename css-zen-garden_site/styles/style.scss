@@ -1,0 +1,53 @@
+@import "fundation";
+@import url("https:fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
+@import "testo";
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+body {
+  color: #325050;
+  background: #fff;
+  font-family: "libre baskerville", sans-serif;
+  font-size: 90%;
+  border: solid 2px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #0d8ba1;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  text-decoration: none;
+  &:visited {
+    color: #1a5952;
+  }
+  &:hover,
+  &:focus {
+    color: #0599c2;
+    text-decoration: underline;
+  }
+}
+abbr {
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+header {
+  height: 230px;
+  // padding: 20px 0 70px 0;
+  background: #2d6360 url(/images/giardino_sfo.png) no-repeat;
+  text-align: center;
+  background-size: cover;
+  background-position: center top -340px;
+  background-attachment: fixed;
+  width: 100%;
+}

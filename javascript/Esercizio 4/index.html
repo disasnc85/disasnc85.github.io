@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS tour</title>
+  </head>
+  <body>
+    <script>
+      /*
+
+         Esercizio 4
+      Conta il tempo
+      Scrivi un programma che dato un numero di secondi, calcoli la quantita di ore, minuti e secondi corrispondenti e poi stampi il risultato.
+      L'output avrà solo numeri interi
+
+         Esempio:
+           Input: 12560
+           Output: 3 ore, 29 minuti e 20 secondi
+
+        Consigli:
+        In un'ora ci sono 60 minuti, in un minuto 60 secondi. Quindi quanti secondi ci sono in un'ora
+            */
+      var h, m, s;
+      
+      var inputSeconds = 12560;
+      var secondsMinute = 60;
+      var secondsHour = 60 * secondsMinute;
+
+      console.log(inputSeconds % secondsHour);
+      console.log((inputSeconds % secondsHour) % secondsMinute);
+
+      h = Math.floor(inputSeconds / secondsHour);
+      m = Math.floor((inputSeconds % secondsHour) / secondsMinute);
+      s = Math.floor((inputSeconds % secondsHour) % secondsMinute);
+
+      var esercizio4 =
+        h +
+        " or" +
+        (h === 1 ? "a" : "e") +
+        "," +
+        m +
+        " minut" +
+        (m === 1 ? "o" : "i") +
+        " e " +
+        s +
+        " second" +
+        (s === 1 ? "0" : "i");
+      console.log(esercizio4);
+    </script>
+  </body>
+</html>

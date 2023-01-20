@@ -1,0 +1,75 @@
+:root {
+  box-sizing: border-box;
+}
+
+*::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: rgba(85, 238, 169, 0.519);
+  font-family: calibri, san-serif;
+}
+
+.portfolio {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  /* max-width: 100%; */
+  margin: 0;
+  /* display: block; */
+}
+
+figure figcaption {
+  margin: 0;
+  padding: 0.3em 0.8em;
+  text-align: right;
+  background-color: black;
+  color: white;
+}
+
+/* 
+  GRID
+   */
+
+.portfolio {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 1em;
+}
+/* .portfolio * {
+    border: solid 1px red;
+  } */
+.portfolio .featured {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+
+/* 
+  GRID DENSE
+  */
+
+.portfolio {
+  grid-auto-flow: dense;
+}
+
+/* 
+ FILL UNWANTED SPACE
+  */
+figure {
+  display: flex;
+  flex-direction: column;
+}
+figure img {
+  flex: 3;
+  object-fit: cover;
+}

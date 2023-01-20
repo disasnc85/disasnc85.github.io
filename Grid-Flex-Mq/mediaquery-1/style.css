@@ -1,10 +1,13 @@
 :root {
   box-sizing: border-box;
+  transition: all 0.5s ease-out;
 }
 
-*::before,
+*,
+::before,
 ::after {
   box-sizing: inherit;
+  transition: inherit;
 }
 
 /* GLOBAL/MOBILE FIRT (iniziamo con il dispositivo modbile piu piccolo) 
@@ -40,10 +43,29 @@ figure {
 }
 
 img {
+  flex: 1;
   max-width: 100%;
+  object-fit: cover;
 }
 .container {
   margin: 0 0.5em;
+}
+
+/* 
+FLEX FIGURE
+*/
+figure {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+EFFECT
+*/
+figure:hover {
+  transition-duration: 0.5s;
+  background-color: red;
+  cursor: pointer;
 }
 
 /* IMPOSTAZIONE RESPONSIVE PER TABLET DA 768px */
@@ -56,7 +78,7 @@ img {
 
   figure {
     float: left;
-    width: calc(50% - 1.5em); 
+    width: calc(50% - 1.5em);
     margin-right: 1.5em;
   }
 
@@ -68,5 +90,17 @@ img {
     content: "";
     clear: both;
     display: block;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    background-color: rgba(100, 218, 171, 0.2);
+  }
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 0.1em 1.5em;
   }
 }

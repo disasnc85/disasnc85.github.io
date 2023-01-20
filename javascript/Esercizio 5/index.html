@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js excercise</title>
+  </head>
+  <body>
+    <!-- if,  if else, switch -->
+    <script>
+      let color = "red";
+
+      switch (color) {
+        case "red":
+          //   console.log("ciao");
+          message = "stop";
+          break;
+        case "yellow":
+        case "orange":
+        case "purple":
+        case "magenta":
+        case "black":
+          //   console.log("no");
+          message = "alert";
+          break;
+        case "blu":
+          // console.log("no");
+          message = "go";
+          break;
+        default:
+          throw Error("colore non gestito");
+      }
+
+
+      
+    </script>
+    <!-- while-for-do-for in-for on-array-object -->
+    <script>
+      var counter = 1;
+
+      // while (counter < 10) {
+      //   console.log("i'm wating");
+      //   counter++;
+      // }
+
+      do {
+        console.log("i'm wating");
+        counter++;
+      } while (false);
+
+      for (var i = 0; i < 10; i++) {
+        console.log("i'm wating dal for");
+        counter++;
+      }
+
+      var arr = [0, 1, 2, 3, 4];
+      for (var i = 0; i < 10; i++) {
+        console.log("i'm wating dal for" + arr[i]);
+      }
+
+      //for... of on array
+      for (var d of arr) {
+        console.log("i'm wating dal for" + d);
+      }
+
+      //for... in on object (like)
+      var obj = { a: 0, b: 1, c: 2 };
+      for (var d in obj) {
+        console.log(d);
+        console.log("i'm wating dal for of " + obj[d]);
+      }
+    </script>
+  </body>
+</html>
