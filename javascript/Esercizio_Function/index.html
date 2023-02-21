@@ -213,5 +213,73 @@ Output: giornata piu calda = 30, giornata piu fredda= -2
       console.log(CardDeck);
       console.log(CardDeck.shuffle());
     </script>
+    <!-- Operazione tra Array -->
+    <script>
+      /*
+        Scrivi un programma che dati:
+        - 2 array di 10 elementi interi casuali compresi tra 1 e 10,
+        - il tipo di operazione aritmetica da effettuare, una delle seguenti:
+          addizione
+          sottrazione
+          moltiplicazione
+          divisione
+        Esegua il calcolo tra ogni elemento dei due array, salvando ciascun risultato in un terzo array di appoggio.
+
+        Esempio:
+          Input: a = [3, 7, 2, 5, 8, 1, 2, 5, 6, 4], b = [9, 3, 1, 4, 7, 6, 5, 10, 1, 5], operazione = "addizione"
+          Output: c = [12, 10, 3, 9, 15, 7, 7, 15, 7, 9]
+
+        Consigli:
+        Se non ricordi come generare un numero random e come convertirlo nel tuo intervallo rigaurda l'esercizio sulle condizioni "Chi l'azzecca?"
+
+        -> map(element => ....)
+        forEach
+        */
+      var array1 = [3, 7, 2, 5, 8, 1, 2, 5, 6, 4];
+      var array2 = [9, 3, 1, 4, 7, 6, 5, 10, 1, 5];
+      const array = [];
+
+      function operazioniTraArray(array1, array2, operazioni) {
+        //controllo lunghezza dei 2 array
+        if (array1.length !== array2.length) {
+          throw Error("Gli array devono avere la stessa lughezza");
+        }
+
+        for (var i = 0; i < array1.lenght; i++) {
+          if (typeof array1[i] !== "number" || typeof array2[i] === "number") {
+            throw Error("Gli array devono avere solo numeri");
+          }
+        }
+
+        var array3 = [];
+        for (var n = 0; n < array1.lenght; n++);
+        {
+          switch (operazioni) {
+            case "addizione":
+              array3[n] = array1[n] + array2[n];
+              break;
+            case "sottrazione;":
+              array3[n] = array1[n] - array2[n];
+              break;
+            case "moltiplicazione;":
+              array3[n] = array1[n] * array2[n];
+              break;
+            case "divisione;":
+              array3[n] = array1[n] / array2[n];
+              break;
+            default:
+              throw Error("operazione non consentita");
+          }
+        }
+        return array3;
+      }
+
+      // var result = operazioniTraArray(
+      //   [3, 7, 2, 5, 8, 1, 2, 5, 6, 4],
+      //   [9, 3, 1, 4, 7, 6, 5, 10, 1, 5],
+      //   "addizione"
+      // );
+
+    </script>
   </body>
 </html>
