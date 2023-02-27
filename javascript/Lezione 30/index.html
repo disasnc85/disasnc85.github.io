@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Js_Debug</title>
+  </head>
+  <body>
+    <h1>Helloworld!</h1>
+    <script>
+      function f() {
+        const message = "Something";
+        debugger;
+        alert(message);
+      }
+
+      const g = () => {
+        const message = "Something";
+        debugger;
+        alert(message);
+      };
+      //f();
+      g();
+    </script>
+  </body>
+</html>
