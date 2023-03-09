@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esercitazione Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style></style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>Esercitazione FORM</h1>
+      </header>
+
+      <main>
+        <div class="row align-items-start">
+          <div class="col">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Inserisci nuova persona</h5>
+                <form>
+                  <label for="name" class="required-field me-1 mb-1"
+                    >Name</label
+                  >
+                  <input
+                    type="text"
+                    class="mb-3 form-control"
+                    name="name"
+                    id="name"
+                    placeholder="Name"
+                    required
+                  />
+
+                  <label for="age" class="required-field me-1 mb-1">Age</label>
+                  <input
+                    type="number"
+                    class="mb-3 form-control"
+                    name="age"
+                    id="age"
+                    placeholder="Age"
+                    required
+                  />
+
+                  <label for="città" class="required-field me-1 mb-1"
+                    >Città</label
+                  >
+                  <input
+                    type="number"
+                    class="mb-3 form-control"
+                    name="città"
+                    id="città"
+                    placeholder="Città"
+                    required
+                  />
+
+                  <button type="button" class="mt-4 btn btn-primary">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Select person for birthday</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Person</h5>
+                <ul id="persons-list" class="list-group">
+                  <li class="list-group-item d-flex">
+                    <div>Mario</div>
+                    <div class="ms-auto">37 anni</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer><p>Sono il footer</p></footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      ;
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      ;
+      crossorigin="anonymous"
+      ;
+    ></script>
+    <script>
+      class Person {
+        constructor(name, age, city = "") {
+          this.name = name;
+          this.age = age;
+          this.city = city;
+        }
+      }
+    </script>
+    <script>
+      const persons = [
+        new Person("Mario", 37),
+        new Person("Susy", 25, "Milano"),
+        new Person("Alfredo", 41, "Napoli"),
+        new Person("Babbel", 50, "Afragola"),
+      ];
+
+      // Arrow Function || SEMPRE ANONIME || IL THIS E' DOVE SONO DEFINITE
+      //const arrow = () => {};
+      // Anonymous Function || ANONIME || IL THIS E' CONTESTUALE A DOVE VIENE UTILIZZATE (E CMQ PUO' CAMBIARE)
+      //const arrow1 = function () {};
+    </script>
+    <script>
+      function populatePersonsList(persons) {
+        const ul = document.getElementById("persons-list");
+        if (persons instanceof Array) {
+          const ps = persons
+            .map((p) => {
+              let s = "";
+              s += '<li class="list-group-item d-flex">';
+              s += "<div>" + p.name + "</div>";
+              s += '<div class="ms-auto">' + p.age + age + "</div>";
+              s += "</li>";
+              return s;
+            })
+            .join("");
+          ul.innerHTML = ps;
+        }
+      }
+    </script>
+    <script>
+      populatePersonsList(persons);
+    </script>
+  </body>
+</html>
