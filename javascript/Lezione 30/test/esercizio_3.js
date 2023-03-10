@@ -62,14 +62,6 @@ const printPerson = function (array, externalFormatter) {
     : "";
 };
 
-
-
-
-
-
-
-
-
 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\//
 //***********TEST*************//
 //\\\\\\\\\\\\\\\\\\\\\\\\\\\//
@@ -107,19 +99,28 @@ describe("Tests", () => {
     assert.equal(result, expectedResult);
   });
 
-  it("printPerson do something with formatter", function () {
+  it("printPerson do something with formatter", () => {
     const array = [
       createPerson("Manuel", 30),
       createPerson("Nicolas", 38),
       createPerson("Gabriele", 25),
       createPerson("Mario"),
     ];
+
+    // 1. arrow function assigned to const
     const formatter = (name, age) => name + " ha " + age + " anni";
     const badFormatter = (name, age) => "ciao " + name;
-    const traditionalFormatter = function (name, age){
-      return name + " ha " + age + " anni"
+
+    // 2. traditional (anonymus) function
+    const traditionalFormatter = function (name, age) {
+      return name + " ha " + age + " anni";
     };
-    const result = printPerson(array, traditionalFormatter);
+    let result = printPerson(array, traditionalFormatter);
+
+    console.log(badFormatter("Antonio", 40));
+
+    // 3. clousure/callback func...
+    result = printPerson(array, (name, age) => name + " ha " + age + " anni");
 
     const expectedResult =
       "Manuel ha 30 anni\n" +

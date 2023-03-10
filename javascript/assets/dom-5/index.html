@@ -120,7 +120,7 @@
       ];
 
       // Arrow Function || SEMPRE ANONIME || IL THIS E' DOVE SONO DEFINITE
-      //const arrow = () => {};
+      // const arrow = () => {};
       // Anonymous Function || ANONIME || IL THIS E' CONTESTUALE A DOVE VIENE UTILIZZATE (E CMQ PUO' CAMBIARE)
       //const arrow1 = function () {};
     </script>
@@ -128,17 +128,20 @@
       function populatePersonsList(persons) {
         const ul = document.getElementById("persons-list");
         if (persons instanceof Array) {
-          const ps = persons
-            .map((p) => {
-              let s = "";
-              s += '<li class="list-group-item d-flex">';
-              s += "<div>" + p.name + "</div>";
-              s += '<div class="ms-auto">' + p.age + age + "</div>";
-              s += "</li>"; 
-              return s;
-            })
+          const getListenItem = (p) => {
+            let s = "";
+            s += '<li class="list-group-item d-flex">';
+            s += "<div>" + p.name + "</div>";
+            s += '<div class="ms-auto">' + p.age + " anni</div>";
+            s += "</li>";
+
+            return s;
+          };
+
+          ul.innerHTML = persons
+            .sort((a, b) => a.age - b.age)
+            .map(getListenItem)
             .join("");
-          ul.innerHTML = ps;
         }
       }
     </script>
