@@ -26,42 +26,39 @@
             <div class="card mb-3">
               <div class="card-body">
                 <h5 class="card-title">Inserisci nuova persona</h5>
-                <form>
-                  <label for="name" class="required-field me-1 mb-1"
-                    >Name</label
-                  >
+                <form method="get" action="https://www.google.it">
+                  <label for="name" class="mb-1 required-field">Name</label>
                   <input
                     type="text"
-                    class="mb-3 form-control"
+                    class="form-control"
                     name="name"
                     id="name"
                     placeholder="Name"
                     required
                   />
 
-                  <label for="age" class="required-field me-1 mb-1">Age</label>
+                  <label for="età" class="mt-3 mb-1 required-field">Età</label>
                   <input
                     type="number"
-                    class="mb-3 form-control"
-                    name="age"
-                    id="age"
-                    placeholder="Age"
+                    class="form-control"
+                    name="età"
+                    id="età"
+                    placeholder="Età"
                     required
                   />
 
-                  <label for="città" class="required-field me-1 mb-1"
+                  <label for="città" class="mt-3 mb-1 required-field"
                     >Città</label
                   >
                   <input
-                    type="number"
-                    class="mb-3 form-control"
+                    type="text"
+                    class="form-control"
                     name="città"
                     id="città"
                     placeholder="Città"
-                    required
                   />
 
-                  <button type="button" class="mt-4 btn btn-primary">
+                  <button type="submit" class="btn btn-primary mt-3">
                     Submit
                   </button>
                 </form>
@@ -70,7 +67,18 @@
 
             <div class="card mb-3">
               <div class="card-body">
-                <h5 class="card-title">Select person for birthday</h5>
+                <h5 class="card-title">Seleziona per compleanno</h5>
+                <form>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected>---</option>
+                  </select>
+                  <button type="submit" class="btn btn-primary mt-3">
+                    Submit
+                  </button>
+                </form>
               </div>
             </div>
           </div>
@@ -79,6 +87,7 @@
             <div class="card mb-3">
               <div class="card-body">
                 <h5 class="card-title">Person</h5>
+
                 <ul id="persons-list" class="list-group">
                   <li class="list-group-item d-flex">
                     <div>Mario</div>
@@ -112,12 +121,23 @@
       }
     </script>
     <script>
-      const persons = [
-        new Person("Mario", 37),
-        new Person("Susy", 25, "Milano"),
-        new Person("Alfredo", 41, "Napoli"),
-        new Person("Babbel", 50, "Afragola"),
-      ];
+      const persons = {
+        list: [
+          new Person("Mario", 37),
+          new Person("Susy", 25, "Milano"),
+          new Person("Alfredo", 41, "Napoli"),
+          new Person("Babbel", 50, "Afragola"),
+        ],
+
+        addItemToList: function (item) {
+          this.list.push(item);
+          document.dispatchEvent(
+            new Event("listUpdated", {
+              bubbles: true,
+            })
+          );
+        },
+      };
 
       // Arrow Function || SEMPRE ANONIME || IL THIS E' DOVE SONO DEFINITE
       // const arrow = () => {};
@@ -125,28 +145,141 @@
       //const arrow1 = function () {};
     </script>
     <script>
-      function populatePersonsList(persons) {
-        const ul = document.getElementById("persons-list");
+      /*function populatePersonsList(persons) {
         if (persons instanceof Array) {
+          const ul = document.getElementById("persons-list");
+
           const getListenItem = (p) => {
             let s = "";
             s += '<li class="list-group-item d-flex">';
-            s += "<div>" + p.name + "</div>";
-            s += '<div class="ms-auto">' + p.age + " anni</div>";
+            s += "<div>" + p.name;
+            s += p.city.length > 0 ? " (" + p.city + ")" : "";
+            s += "</div>"
+            s += '<div class="ms-auto">' + p.age + " anni</div> ";
             s += "</li>";
 
             return s;
           };
 
-          ul.innerHTML = persons
+         ul.innerHTML = persons
+            .filter((p) => p instanceof Person)
             .sort((a, b) => a.age - b.age)
             .map(getListenItem)
             .join("");
         }
+      }*/
+
+      //////ALTRO MODO PER INSTANZIARE DENTRO .map  /////////
+
+      function populatePersonsList(persons) {
+        if (persons instanceof Array) {
+          const ul = document.getElementById("persons-list");
+          ul.innerHTML = persons
+            .filter((p) => p instanceof Person)
+            .sort((a, b) => a.age - b.age) //mette in ordine crescente o descrescente (dipende dall'inversione tra 'a' e 'b')
+            .map((p) => {
+              let s = "";
+
+              s += '<li class="list-group-item d-flex">';
+              s += "<div>" + p.name;
+              s += p.city.length > 0 ? " (" + p.city + ")" : ""; //TERNARIO --> SE (CONDIZIONE "p.city.length > 0" )   ?   (VERO) : (FALSO)
+              s += "</div>";
+              s += '<div class="ms-auto">' + p.age + " anni</div> ";
+              s += "</li>";
+              return s;
+            })
+            .join("");
+        }
       }
+
+      function populateOptions(persons) {
+        if (persons instanceof Array) {
+          const form = document.forms.item(1);
+          const select = form.elements[0];
+          const newOptions = persons
+            .filter((p) => p instanceof Person)
+            .sort((a, b) => a.age - b.age)
+            .map((p, index) => new Option(p.name, index.toString()));
+          const firstChild = [select.children[0]];
+          const t = firstChild.concat(newOptions);
+          select.innerHTML = "";
+          t.forEach((i) => {
+            select.append(i);
+          });
+        }
+      }
+
+      /* //////SECONDO MODO PER INSTANZIARE TRAMITE .forEach  /////////
+
+      function populatePersonsList(persons) {
+        const ul = document.getElementById("persons-list");
+
+        if (persons instanceof Array) {
+          //ul.innerHTML= "";
+          persons
+            .filter((p) => p instanceof Person)
+            .sort((a, b) => a.age - b.age)
+            .forEach((p) => {
+              const li = document.createElement("li");
+              li.setAttribute("class", "list-group-item d-flex");
+              const firstDiv = document.createElement("div");
+              firstDiv.innerHTML = p.name;
+              const secondDiv = document.createElement("div");
+              secondDiv.innerHTML = p.age + " " + "anni";
+              secondDiv.setAttribute("class", "ms-auto");
+              li.append(firstDiv);
+              li.append(secondDiv);
+
+              ul.append(li);
+            })
+            .join("");
+        }
+      }*/
     </script>
     <script>
-      populatePersonsList(persons);
+      populatePersonsList(persons.list);
+      populateOptions(persons.list);
+    </script>
+    <script>
+      const personCreateForm = document.forms.item(0);
+      personCreateForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Non fare quello che fai normalmente
+        e.stopPropagation(); // Finisci qui non andare da altre parti (questo quanto hai impostato un 'action' nel form)
+        const form = e.target;
+        const name = form.elements[0].value; // Raccoglie il valore nel form. [0] fa riferimento al primo valore (essendo Zero based) quindi il name
+        const age = form.elements[1].value;
+        const city = form.elements[2].value;
+        const person = new Person(name, age, city); // Creata la persona
+        persons.addItemToList(person); // Metodo Push --> assegna
+
+        form.reset();
+      });
+
+      const birthdayForm = document.forms[1];
+      birthdayForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const selectedPersonName = e.target.elements[0].value;
+        const selectedPerson = persons.list
+          .filter((p) => p instanceof Person)
+          .sort((a, b) => a.age - b.age)[selectedPersonName];
+        (i) => i.name === selectedPersonName;
+        if (selectedPerson instanceof Person) {
+          // selectedPerson.age = selectedPerson +1
+          selectedPerson.age++;
+          document.dispatchEvent(
+            new Event("listUpdated", {
+              bubbles: true,
+            })
+          );
+        }
+      });
+
+      document.addEventListener("listUpdated", () => {
+        populatePersonsList(persons.list);
+        populateOptions(persons.list);
+      });
     </script>
   </body>
 </html>

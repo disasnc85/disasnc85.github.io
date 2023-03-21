@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS-DOMS</title>
+  </head>
+  <body>
+    <h1>The Extremadura Region of Western Spain</h1>
+    <article id="item-1">
+      <h2>Geography of the Region</h2>
+      <p>
+        1-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa nam
+        totam ab similique quis. Enim incidunt qui illo alias, consequatur
+        reiciendis optio magni similique unde, voluptatum nulla nobis blanditiis
+        architecto. Numquam debitis soluta consequatur voluptates voluptate.
+        Fuga officiis ea at neque molestias, modi molestiae harum ab delectus,
+        suscipit atque odio nesciunt? Voluptatem aspernatur ad ea. Esse, optio
+        cum? Aspernatur, ipsam!
+      </p>
+    </article>
+    <article id="item-2">
+      <h2>Where to Stay</h2>
+      <p>
+        2-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa nam
+        totam ab similique quis. Enim incidunt qui illo alias, consequatur
+        reiciendis optio magni similique unde, voluptatum nulla nobis blanditiis
+        architecto. Numquam debitis soluta consequatur voluptates voluptate.
+        Fuga officiis ea at neque molestias, modi molestiae harum ab delectus,
+        suscipit atque odio nesciunt? Voluptatem aspernatur ad ea. Esse, optio
+        cum? Aspernatur, ipsam!
+      </p>
+    </article>
+    <article id="item-3">
+      <h2>Climate</h2>
+      <p>
+        3-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa nam
+        totam ab similique quis. Enim incidunt qui illo alias, consequatur
+        reiciendis optio magni similique unde, voluptatum nulla nobis blanditiis
+        architecto. Numquam debitis soluta consequatur voluptates voluptate.
+        Fuga officiis ea at neque molestias, modi molestiae harum ab delectus,
+        suscipit atque odio nesciunt? Voluptatem aspernatur ad ea. Esse, optio
+        cum? Aspernatur, ipsam!
+      </p>
+    </article>
+    <article id="item-4">
+      <h2>What to see</h2>
+      <p>
+        4-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa nam
+        totam ab similique quis. Enim incidunt qui illo alias, consequatur
+        reiciendis optio magni similique unde, voluptatum nulla nobis blanditiis
+        architecto. Numquam debitis soluta consequatur voluptates voluptate.
+        Fuga officiis ea at neque molestias, modi molestiae harum ab delectus,
+        suscipit atque odio nesciunt? Voluptatem aspernatur ad ea. Esse, optio
+        cum? Aspernatur, ipsam!
+      </p>
+    </article>
+    <article id="item-5">
+      <h2>Gastronnomy</h2>
+      <p>
+        5-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa nam
+        totam ab similique quis. Enim incidunt qui illo alias, consequatur
+        reiciendis optio magni similique unde, voluptatum nulla nobis blanditiis
+        architecto. Numquam debitis soluta consequatur voluptates voluptate.
+        Fuga officiis ea at neque molestias, modi molestiae harum ab delectus,
+        suscipit atque odio nesciunt? Voluptatem aspernatur ad ea. Esse, optio
+        cum? Aspernatur, ipsam!
+      </p>
+    </article>
+
+    <script>
+      function getTitlesFromArticles(list) {
+        const articlesTitles = [];
+        for (let i = 0; i < list.length; i++) {
+          console.log(list.item(i).innerHTML);
+          articlesTitles.push(list.item(i).innerHTML);
+        }
+        return articlesTitles;
+      }
+
+      (function () {
+        const articlesTitles = getTitlesFromArticles(
+          document.querySelectorAll("article > h2")
+        );
+
+        const bodyElement = document.getElementsByTagName("body");
+        const elementUl = document.createElement("ul");
+        bodyElement[0].prepend(elementUl);
+
+        for (let i = 0; i < articlesTitles.length; i++) {
+          const element = document.createElement("li");
+          elementUl.append(element);
+
+          ///****** PRIMO METODO********/////
+          const elementA = document.createElement("a");
+          elementA.style.color = "red";
+          elementA.innerHTML = articlesTitles[i];
+          elementA.setAttribute("href", "#item-" + [i + 1]);
+          elementA.setAttribute("target", "_self");
+          element.append(elementA);
+        }
+
+        ///****** SECONDO METODO********/////
+
+        /*const liList = document.getElementsByTagName("li");
+        for (let i = 0; i < liList.length; i++) {
+          const elementA = document.createElement("a");
+          elementA.style.color = "red";
+          liList[i].append(elementA);
+          elementA.innerHTML = articlesTitles[i];
+        }
+
+
+        const aList = document.getElementsByTagName("a");
+        for (let i = 0; i < aList.length; i++) {
+          aList[i].setAttribute("href", "#item-" + [i + 1]);
+          aList[i].setAttribute("target", "_blank");
+        }*/
+
+        // console.log(articlesTitles);
+      })();
+
+      //per ciascun article dobbiamo creare un elemento di <li><a href="#"> {title}</a></li>
+      //prependere gli elementi come [primo] figlio del tad body
+      //gli elementi <li> devono essere a loro volta inclusi in un element <ul>
+      //passo successivo, dovete aggiungere anche l'attributo "id" nell'attributo href ...
+      //articlestitle puo tornare una lusta di object invece??
+    </script>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM-3</title>
+  </head>
+  <body>
+    <h1>Things to do</h1>
+    <ol id="toDoList">
+      <li class="important" about="something">Mow the lawn</li>
+      <li>Clean the window</li>
+      <li class="important">Answer your email</li>
+    </ol>
+    <p id="toDoNotes">Make sure all these are game on TV!</p>
+
+    <script>
+      (function () {
+        let olElements = document.getElementById("toDoList");
+        /*let count = 0;
+        olElements.childNodes.forEach((node) => {
+        if (node.nodeType === 1) {
+        count++;}*/
+
+        const elements = [];
+        olElements.childNodes.forEach((node) => {
+          if (node.nodeType === 1) {
+            elements.push(node);
+          }
+        });
+
+        //alert("The ordered list contains " + count + " items...");
+        var firstNode = elements[1];
+        console.log(firstNode);
+        console.log(olElements.childNodes[1].nodeName);
+        console.log(olElements.childNodes[2].nodeName);
+        elements[0].innerHTML = "First element";
+
+        //getElementsByTagName= ottiene tutti gli elementi che sono corrispondenti al tag "li"
+        const listElements = document.getElementsByTagName("li");
+        console.log(listElements);
+        console.log(listElements.item(1));
+
+        //getElementsByClassName= ottiene tutti gli elementi che sono corrispondenti alla classe "important"
+        const classElements = document.getElementsByClassName("important");
+        console.log(classElements);
+
+        const element = classElements.item(0);
+        const attribute = element.getAttribute("about");
+        console.log(attribute);
+
+        const el = document.querySelectorAll("li.important");
+        console.log(el);
+
+        /* const el = document.querySelectorAll("li.important[about]");
+        console.log(el.getAttribute ("about"));*/ //in console mi dice << el.getAttribute in not a Function>> mahhh
+
+        olElements = document.getElementById("toDoList");
+        const elementByClassName = document
+          .querySelectorAll("#toDoList")
+          .item(0);
+        console.log(elementByClassName);
+        const elementById = document.querySelector("#toDoList");
+        console.log(elementById);
+
+        //create Element
+
+        const createdElement = document.createElement("li");
+        createdElement.innerHTML = "Some text";
+        olElements.appendChild(createdElement);
+        console.log(createdElement);
+
+        const createdTextNode = document.createTextNode(" SOMETHING");
+        const p = document.querySelector("p#toDoNotes");
+        p.appendChild(createdTextNode);
+
+        const cloned = createdTextNode.cloneNode(true);
+        p.appendChild(cloned); //mette un'altro 'SOMETHING' clonato
+
+        const clonedComplexElement = olElements.cloneNode(true);
+        const body = document.querySelector("body");
+        body.prepend(clonedComplexElement);
+
+       /******DOVE INSERIRE ELEMENTI*******
+        element.append();
+        element.appendChild(nodeElement);
+        element.prepend();
+
+        element.insertAdjacentElement(position, newElement);
+        //beforebegin
+        //afterbegin
+        //beforeend
+        //afterend
+        *****************************************/
+
+        clonedPrint(
+          olElements,
+          document.querySelector("#toDoList li:nth-child(2)"),
+          1,
+          "beforebegin"
+        ); //'afterend'
+      })();
+
+      function clonedPrint(
+        elementToClone,
+        elementToAppend,
+        times,
+        position = undefined
+      ) {
+        for (let i = 0; i < times; i++) {
+          const clonedComplexElement = elementToClone.cloneNode(true);
+          if (!!position) {
+            elementToAppend.insertAdjacentElement(
+              position,
+              clonedComplexElement
+            );
+            continue;
+          }
+          elementToAppend.append(clonedComplexElement);
+        }
+      }
+    </script>
+  </body>
+</html>
