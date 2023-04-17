@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>BOM-1</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <form> -->
+        <div class="card p-5 m-5">
+          <div class="my-3">
+            <label for="copy-text" class="form-label">
+              Riporta i tuoi commenti qui:</label
+            >
+            <textarea class="form-control" id="copy-text" rows="3"></textarea>
+          </div>
+          <div class="my-3">
+            <button class="btn btn-primary" id="copy-btn">
+              Copy to cliboard
+            </button>
+          </div>
+        </div>
+      <!-- </form> -->
+    </div>
+
+    <script>
+      const textArea = document.getElementById("copy-text");
+      const button = document.querySelector("#copy-btn");
+      //const form = document.forms.item(0);
+
+      button.addEventListener("click", (e) => {
+        //console.log("button cliccato");
+        if (textArea instanceof HTMLTextAreaElement) {
+            navigator.clipboard.writeText(`Questo che segue è il valore della Texarea: ${textArea.value}`);
+          }
+      });
+/*
+
+
+      form.addEventListener("submit", (e) => {
+        // per evitare lo standard submit della pagina devo impostare un argomento
+        // (e) rappresenta l'evento del DOM corrispondente al 'submit' del form
+        // submit è ESCLUSIVO DEL FORM
+        console.log("fomr submitted..");
+
+        // Tutte le volte che maneggiamo una variabile/proprietà/costante..
+        //questa puo essere un tipo PRIMITIVO o un TIPO DI RIFERIMENTO
+        // PRIMITIVO: number, string, boolean, Symbol, null, undefined
+        // quando ho a che fare con tipi PRIMITIVI poss asserire il tipo attraverso un codice tipo questo:
+        // elemento: typeof e === "string"
+        // RIFERIMENTO: Object, Array, DateTime...e molto altro... (tipo HTMLFormElement, HTMLElement...e via...)
+        // quando ho a che fare con tipo di RIFERMENTO posso asserire il tipo attraverso un codice tipo questo:
+        // e instanceof Array
+
+        if (e.target instanceof HTMLFormElement) {
+          const textArea = e.target.elements[0];
+
+          if (textArea instanceof HTMLTextAreaElement) {
+            navigator.clipboard.writeText(textArea.value);
+          }
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      });
+
+      */
+    </script>
+  </body>
+</html>

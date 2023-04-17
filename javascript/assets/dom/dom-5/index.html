@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esercitazione Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style></style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>Esercitazione FORM</h1>
+      </header>
+
+      <main>
+        <div class="row align-items-start">
+          <div class="col">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Inserisci nuova persona</h5>
+                <form method="get" action="https://www.google.it">
+                  <label for="name" class="mb-1 required-field">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    placeholder="Name"
+                    required
+                  />
+
+                  <label for="età" class="mt-3 mb-1 required-field">Età</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="età"
+                    id="età"
+                    placeholder="Età"
+                    required
+                  />
+
+                  <label for="città" class="mt-3 mb-1 required-field"
+                    >Città</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="città"
+                    id="città"
+                    placeholder="Città"
+                  />
+
+                  <button type="submit" class="btn btn-primary mt-3">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Seleziona per compleanno</h5>
+                <form>
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                  >
+                    <option selected>---</option>
+                  </select>
+                  <button type="submit" class="btn btn-primary mt-3">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Person</h5>
+
+                <ul id="persons-list" class="list-group">
+                  <li class="list-group-item d-flex">
+                    <div>Mario</div>
+                    <div class="ms-auto">37 anni</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer><p>Sono il footer</p></footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      ;
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      ;
+      crossorigin="anonymous"
+      ;
+    ></script>
+    <script>
+      class Person {
+        constructor(name, age, city = "") {
+          this.name = name
+          this.age = age
+          this.city = city
+        }
+      }
+    </script>
+    <script>
+      const persons = {
+        list: [
+          new Person("Mario", 37),
+          new Person("Susy", 25, "Milano"),
+          new Person("Alfredo", 41, "Napoli"),
+          new Person("Babbel", 50, "Afragola"),
+        ],
+
+        addItemToList: function (item) {
+          this.list.push(item)
+          document.dispatchEvent(
+            new Event("listUpdated", {
+              bubbles: true,
+            })
+          )
+        },
+        getList: function () {
+          return [...this.list]
+        },
+      }
+
+      // Arrow Function || SEMPRE ANONIME || IL THIS E' DOVE SONO DEFINITE
+      // const arrow = () => {};
+      // Anonymous Function || ANONIME || IL THIS E' CONTESTUALE A DOVE VIENE UTILIZZATE (E CMQ PUO' CAMBIARE)
+      //const arrow1 = function () {};
+    </script>
+    <script type="module">
+      import populatePersonsList, { populateOptions } from "./functions.js"
+      populatePersonsList(persons.list)
+      populateOptions(persons.list)
+    </script>
+    <script type="module">
+      import populatePersonsList, { populateOptions } from "./functions.js"
+      const personCreateForm = document.forms.item(0)
+      personCreateForm.addEventListener("submit", e => {
+        e.preventDefault() // Non fare quello che fai normalmente
+        e.stopPropagation() // Finisci qui non andare da altre parti (questo quanto hai impostato un 'action' nel form)
+        const form = e.target
+        const name = form.elements[0].value // Raccoglie il valore nel form. [0] fa riferimento al primo valore (essendo Zero based) quindi il name
+        const age = form.elements[1].value
+        const city = form.elements[2].value
+        const person = new Person(name, age, city) // Creata la persona
+        persons.addItemToList(person) // Metodo Push --> assegna
+
+        form.reset()
+      })
+
+      const birthdayForm = document.forms[1]
+      birthdayForm.addEventListener("submit", e => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        const selectedPersonName = e.target.elements[0].value
+        const selectedPerson = persons.list
+          .filter(p => p instanceof Person)
+          .sort((a, b) => a.age - b.age)[selectedPersonName]
+        i => i.name === selectedPersonName
+        if (selectedPerson instanceof Person) {
+          // selectedPerson.age = selectedPerson +1
+          selectedPerson.age++
+          document.dispatchEvent(
+            new Event("listUpdated", {
+              bubbles: true,
+            })
+          )
+        }
+      })
+
+      document.addEventListener("listUpdated", () => {
+        populatePersonsList(persons.list)
+        populateOptions(persons.list)
+      })
+    </script>
+
+    <script>
+      ////// REST PARAMETERS //////
+      function sum(...operands) {
+        return operands
+          .filter(i => typeof i === "number")
+          .reduce((c, p) => c + p)
+      }
+
+      const arr = [100, 1, 2, 3, 4]
+      const [a, b, ...pippo] = arr
+
+      const obj = { a: 1, b: 2, c: 3 }
+      const { a: a1, b: b1, ...rest } = obj
+    </script>
+  </body>
+</html>
