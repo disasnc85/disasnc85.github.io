@@ -16,14 +16,21 @@
   "author": "md",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "css-minify": "^2.0.0",
-    "dart-sass": "^1.25.0",
-    "postcss": "^8.4.20",
-    "postcss-cli": "^10.1.0",
-    "nodemon": "^2.0.20"
+    "autoprefixer": "^10.4.14",
+		"css-minify": "^2.0.0",
+		"css-loader": "6.7.4",
+		"dart-sass": "^1.25.0",
+		"file-loader": "^6.2.0",
+		"nodemon": "^2.0.22",
+		"postcss": "^8.4.23",
+		"postcss-cli": "^10.1.0",
+		"postcss-loader": "^7.3.0",
+		"sass": "^1.62.1",
+		"sass-loader": "^13.3.0",
+		"style-loader": "3.3.3"
   },
   "dependencies": {
-    "bootstrap": "^5.2.3"
+    "bootstrap": "^5.2.3",
+		"bootstrap-icons": "1.10.5"
   }
 }
