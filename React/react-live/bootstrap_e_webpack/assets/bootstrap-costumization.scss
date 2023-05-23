@@ -1,0 +1,27 @@
+// Responsive containers
+// Breackpoint values
+
+$container-max-widths: (
+  // sm: 540px,
+  // md: 720px,
+  // lg: 960px,
+  // xl: 1140px,
+  // xxl: 1320px
+  xs: 320px,
+  sm: 1px,
+  md: 100px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// Colori customizzati che influenzano le variabili di boostrap
+$primary:       purple;
+$secondary:     red;
+$success:       green;
+$info:          yellow;
+$warning:       red;
+$danger:        white;
+$light:         blue;
+$dark:          black;
+

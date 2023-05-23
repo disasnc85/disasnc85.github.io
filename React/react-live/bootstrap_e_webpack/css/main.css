@@ -1,0 +1,13 @@
+body {
+  background-color: blue;
+}
+
+.my-class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:fullscreen {
+  display: block;
+}/*# sourceMappingURL=main.css.map */

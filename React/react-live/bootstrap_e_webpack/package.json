@@ -1,0 +1,40 @@
+{
+	"name": "bootstrap-via-npm",
+	"version": "0.0.1",
+	"description": "some description",
+	"main": "index.js",
+	"scripts": {
+		"sass": "sass assets/main.scss:dist/main.css",
+		"postcss": "npx postcss -r dist/*.css --use autoprefixer",
+		"minify": "css-minify -d dist -o dist",
+		"dev": "npm run sass",
+		"build": "npm run sass && npm run postcss && npm run minify",
+		"watch:sass": "nodemon -e scss -x \"npm run sass\" ",
+		"watch:postcss": "nodemon -e css -x \"npm run postcss\" ",
+		"watch": "npm run watch:sass",
+		"webpack": "webpack"
+
+	},
+	"author": "md",
+	"license": "ISC",
+	"devDependencies": {
+		"autoprefixer": "^10.4.14",
+		"css-minify": "^2.0.0",
+		"css-loader": "6.7.4",
+		"dart-sass": "^1.25.0",
+		"file-loader": "^6.2.0",
+		"nodemon": "^2.0.22",
+		"postcss": "^8.4.23",
+		"postcss-cli": "^10.1.0",
+		"postcss-loader": "^7.3.0",
+		"sass": "^1.62.1",
+		"sass-loader": "^13.3.0",
+		"style-loader": "3.3.3",
+		"webpack": "^5.83.1",
+		"webpack-cli": "^5.1.1"
+	},
+	"dependencies": {
+		"bootstrap": "^5.2.3",
+		"bootstrap-icons": "1.10.5"
+	}
+}

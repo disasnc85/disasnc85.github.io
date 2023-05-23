@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "sourceMap": true,
+        "outDir": "./dist", // imposta la cartella nel quale verranno salvati i file JS compilati.
+        "rootDir": "./", // Semplifica la cartella di root dei file di input.
+        "strict": true,
+        "allowJs": true,
+        "checkJs": true,
+
+    },
+    "exclude": [
+        "node_modules",
+        "./dist"
+    ]
+}
