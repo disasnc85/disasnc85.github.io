@@ -102,7 +102,7 @@ function showData(data: AirQualityData) {
 }
 
 function getMap({ width = 450, height = 250 }, lat:number, lng:number, zoom = 18) {
-	const key = "";
+	const key = ""; 
 	return `<iframe width="${width}" height="${height}" style="..."
                         allowfullscreen
                         referrerpolicy="no-referrer-when-downgrade"
