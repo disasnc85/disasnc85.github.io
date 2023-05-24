@@ -1,4 +1,4 @@
-import modal from "bootstrap/js/src/modal";
+import modal from "/bootstrap/js/src/modal";
 
 const signupModal = document.getElementById("signup-modal");
 const myModal = new modal(signupModal, {
