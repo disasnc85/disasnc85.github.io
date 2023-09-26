@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>React Base</title>
+		<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<style>
+			:root {
+				--spacing: 0.1em;
+				--spacing2: calc(2 * var(--spacing));
+				--spacing3: calc(3 * var(--spacing));
+				--spacing4: calc(4 * var(--spacing));
+				--spacing5: calc(5 * var(--spacing));
+				--spacing10: calc(10 * var(--spacing));
+				--spacing20: calc(20 * var(--spacing));
+				margin: inherit;
+			}
+			* + * {
+				margin: var(--spacing);
+			}
+			body {
+				font-family: "Open Sans", sans-serif;
+				margin: unset;
+			}
+			.container {
+				padding: var(--spacing2);
+				margin: 0 auto;
+			}
+
+			.recipe-container {
+				margin: 0 0 var(--spacing4) 0;
+				border: 1px solid #999;
+				padding: var(--spacing5);
+			}
+			@media (min-width: 900px) {
+				.container {
+					max-width: 900px;
+				}
+				.recipes {
+					display: flex;
+					justify-items: center;
+				}
+				.recipe-container {
+					margin: 0 auto;
+					max-width: 250px;
+				}
+			}
+
+			.recipe-title {
+				margin: 0;
+				font-size: x-large;
+			}
+
+			.recipe-ingredients li {
+				margin: unset;
+			}
+
+			.recipe-ingredients ul {
+				margin: initial;
+				padding: var(--spacing3) var(--spacing3) var(--spacing3) var(--spacing20);
+			}
+
+			.recipe-description {
+				margin-top: var(--spacing20);
+				font-size: smaller;
+				text-align: justify;
+			}
+			.recipe-ingredients {
+				margin-top: var(--spacing20);
+			}
+
+			.red-title {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root" class="container"></div>
+
+		<script>
+			document.getElementById("root");
+			document.querySelector("#root");
+
+			// Object constructor function
+			function Recipe(title, ingredients, description) {
+				this.title = title;
+				this.ingredients = ingredients;
+				this.description = description;
+			}
+
+			const recipe1 = new Recipe(
+				"Spaghetti alla carbonara",
+				["Spaghetti 120g", "Tuorli(6 uova medie)", "Guanciale 150g", "Pecorino romano 120g"],
+				"Dove sono nati gli spaghetti alla Carbonara? Partendo dai ricettari storici, si può incontrare il primo esempio di associazione tra uovo e pasta ne “Il cuoco galante” del napoletano Vincenzo Corrado, stampato nel 1773, seguito dalla “Cucina teorica-pratica” del conterraneo Ippolito Cavalcanti."
+			);
+			const recipe2 = new Recipe(
+				"Spaghetti all'amatriciana",
+				["Spaghetti 120g", "Tuorli(6 uova medie)", "Guanciale 150g", "Pecorino romano 120g"],
+				"Dove sono nati gli spaghetti alla Carbonara? Partendo dai ricettari storici, si può incontrare il primo esempio di associazione tra uovo e pasta ne “Il cuoco galante” del napoletano Vincenzo Corrado, stampato nel 1773, seguito dalla “Cucina teorica-pratica” del conterraneo Ippolito Cavalcanti."
+			);
+			const recipe3 = new Recipe(
+				"Spaghetti alla puttanesca",
+				["Spaghetti 120g", "Tuorli(6 uova medie)", "Guanciale 150g", "Pecorino romano 120g"],
+				"Dove sono nati gli spaghetti alla Carbonara? Partendo dai ricettari storici, si può incontrare il primo esempio di associazione tra uovo e pasta ne “Il cuoco galante” del napoletano Vincenzo Corrado, stampato nel 1773, seguito dalla “Cucina teorica-pratica” del conterraneo Ippolito Cavalcanti."
+			);
+
+			const recipes = [recipe1, recipe2, recipe3]; // fetch
+		</script>
+
+		<!-- <script type="text/babel">
+			// function HelloWorld() {
+			// 	return <p>Hello World</p>;
+			// }
+			const RecipeTitle = (recipeTitle) => {
+				return React.createElement("h5", { className: "recipe-title" }, recipeTitle); // ALTERNATIVA CON create.Element
+				//return <h5 className="recipe-title"> {recipeTitle}</h5>;
+			};
+
+			const RecipeIngredients = (ingredients) => {
+				const ingredientListItem = ingredients.map((ingredient, index) =>React.createElement("li", { key: index }, ingredient));
+				const unOrderedList = React.createElement("ul", null, ingredientListItem);
+				return React.createElement("div", { className: "recipe-ingredients" }, unOrderedList);
+			};
+
+			const RecipeDescription = (description) => {
+				return React.createElement("div", { className: "recipe-description" }, description);
+			};
+
+			const RecipeContainer = ({ recipe, index }) => {
+				return React.createElement(
+					"div",
+					{ key: index, className: "recipe-container" },
+					RecipeTitle(recipe.title),
+					RecipeIngredients(recipe.ingredients), ///!!! NON SO PERCHE NON POSSO METTERE INGREDIENTS, MI METTERE FUORI I PALLINI DELLA LISTA
+					RecipeDescription(recipe.description)
+				);
+			};
+
+			const recipeItems = recipes.map((recipe, index) => RecipeContainer({ recipe, index }));
+			const RecipesContainer = () =>React.createElement("div", { className: "recipes" }, recipeItems);
+			// Render
+			const container = document.querySelector("#root");
+			const rootElement = ReactDOM.createRoot(container);
+			rootElement.render(RecipesContainer());
+		</script> -->
+
+		<script type="text/babel">
+
+			const RecipeTitle = ( props ) => {
+
+				const [title, setTitle]= React.useState(props.title);
+				//props.children= "xxx" //NON FARE MAI
+				//return <h5 className="recipe-title"> {props.children}</h5>;
+				return <input type="text" value={title} onChange={(e)=> setTitle(e.target.value)}/>
+			};
+
+			const RecipeIngredients = ({ ingredients }) => {
+				return (
+					<div className="recipe-ingredients">
+						<ul>
+							{ingredients.map((ingredient, index) => 
+								<li key={index}> {ingredient}</li>
+							)}
+						</ul>
+					</div>
+				);
+			};
+
+			const RecipeDescription = ({ color, children }) => {
+				//return React.createElement("div", { className: "recipe-description" }, description);
+				return (
+					<div style={{ color: color }} className="recipe-description">{children}
+					</div>
+				);
+			};
+
+			const RecipeContainer = ({ recipe }) => {
+				//return React.createElement("div",{ key: index, className: "recipe-container" },
+				return (
+					<div className="recipe-container">
+						<RecipeTitle title={recipe.title}>  </RecipeTitle>,
+						<RecipeIngredients ingredients={recipe.ingredients} />,
+						<RecipeDescription color={"red"} value={"testo"}>
+							{recipe.description}
+						</RecipeDescription>
+					</div>
+				);
+			};
+			////INFO////
+			// nella "const RecipeContainer" {recipe.description} è la children
+			// se nella return della "const RecipeDescription", in fondo, gli mettessi {value} apparirebbe
+			// nella pagina HTML la scritta "testo" come da riga 174
+			// STESSA COSA FATTA PER "const RecipeTitle"---- Questo per capire l'uso di children
+			
+
+			const RecipesContainer = ({ recipes }) => {
+				return (
+					<div className="recipes">
+						{recipes.map((recipe, index) => (
+							<RecipeContainer key={index} recipe={recipe} />
+						))}
+						;
+					</div>
+				);
+			};
+
+			// Render
+			const container = document.querySelector("#root");
+			const rootElement = ReactDOM.createRoot(container);
+			rootElement.render(<RecipesContainer recipes={recipes} />);
+		</script>
+
+		
+	</body>
+</html>

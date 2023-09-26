@@ -1,13 +1,12 @@
-import modal from "/bootstrap/js/src/modal";
-
+import Modal from "bootstrap/js/dist/modal";
 const signupModal = document.getElementById("signup-modal");
-const myModal = new modal(signupModal, {
+const myModal = new Modal(signupModal, {
 	keyboard: true,
 	focus: true,
 	backdrop: true,
 });
 
 const signupBtn = document.getElementById("signup");
-signupModal.addEventListener("click", () => {
+signupBtn.addEventListener("click", () => {
 	myModal.show();
 });

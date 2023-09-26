@@ -50,7 +50,7 @@ const p = Promise.all(promises);
 p.then(mapToAirQualityData);
 
 function mapToAirQualityData(promisesResult: Array<Array<RawAirQualityData>>) {
-	const firstApiResponse: Array<RawAirQualityData> = promisesResult[0];
+	const firstApiResponse: Array<RawAirQualityData> = promisesResult[1];
 	const secondApiResponse: Array<RawAirQualityData> = promisesResult[1];
 	const responseLocation: DataLocation = firstApiResponse[0].location;
 
@@ -90,7 +90,7 @@ function showData(data: AirQualityData) {
 		typeof data.location.placeId === "string"
 			? Number.parseInt(data.location.placeId)
 			: data.location.placeId;
-	locationNameContainer.innerHTML = getLocation(placeID ?? 0, data.location.country?? "IT");
+	locationNameContainer.innerHTML = getLocation(placeID ?? 0, data.location.country ?? "IT");
 
 	// crea uno snapshot-data per ogni snapshot
 	const snapshotsContainer = document.querySelector(".air-quality-item-container .card-body")!;
@@ -101,8 +101,8 @@ function showData(data: AirQualityData) {
 	console.log(data.dataSnapshots);
 }
 
-function getMap({ width = 450, height = 250 }, lat:number, lng:number, zoom = 18) {
-	const key = ""; 
+function getMap({ width = 450, height = 250 }, lat: number, lng: number, zoom = 18) {
+	const key = "";
 	return `<iframe width="${width}" height="${height}" style="..."
                         allowfullscreen
                         referrerpolicy="no-referrer-when-downgrade"
@@ -111,16 +111,16 @@ function getMap({ width = 450, height = 250 }, lat:number, lng:number, zoom = 18
                     </iframe>`;
 }
 
-function getSnapshot(snapshot:DataSnapshots) {
+function getSnapshot(snapshot: DataSnapshots) {
 	const snapshotElement = document.createElement("div");
 	snapshotElement.className = "snapshot-data card mt-3";
 
 	const snapshotValues = snapshot.values
-		.map(v => {
+		.map((v) => {
 			let value = "0";
 			let type = "";
 
-			let v1 :number = v.value ? Number.parseInt(v.value):0;
+			let v1: number = v.value ? Number.parseInt(v.value) : 0;
 
 			switch (v.value_type) {
 				case "humidity":
@@ -163,4 +163,3 @@ function getSnapshot(snapshot:DataSnapshots) {
 	snapshotElement.innerHTML = content;
 	return snapshotElement;
 }
-
