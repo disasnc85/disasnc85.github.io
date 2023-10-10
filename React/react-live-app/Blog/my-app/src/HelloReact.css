@@ -1,0 +1,7 @@
+div.centered{
+    display: flex;
+    width: auto;
+    color: red;
+    justify-content: center;
+    align-content: center;
+}
